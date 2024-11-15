@@ -94,7 +94,7 @@ const registerUser = async (name, surname, email, password) => {
             password: hashedPassword,
         });
 
-        return { success: true, message: 'User registered successfully',user:user.dataValues.id };
+        return { success: true, message: 'User registered successfully', user: user.dataValues.id };
     } catch (error) {
         console.error('Error in registerUser:', error);
         throw new Error('Error in registering user');

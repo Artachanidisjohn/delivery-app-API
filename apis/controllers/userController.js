@@ -6,12 +6,12 @@ const userService = require('../services/userService');
 // Συνάρτηση για την επεξεργασία του αιτήματος login
 const loginController = async (req, res) => {
 
-    // Εξάγουμε το email και τον κωδικό πρόσβασης από το σώμα του αιτήματος
-    const { email, password } = req.body;
+    console.log("Request Body:", req.body);
+
 
     try {
         // Καλούμε την υπηρεσία που ελέγχει αν ο χρήστης υπάρχει και αν ο κωδικός πρόσβασης είναι σωστός
-        const user = await userService.login(email,password);
+        const user = await userService.login(req.body.email, req.body.password);
 
         // Αν ο χρήστης δεν βρεθεί ή ο κωδικός είναι λάθος, επιστρέφουμε 401 Unauthorized
         if (!user) {
@@ -19,10 +19,10 @@ const loginController = async (req, res) => {
         }
 
         // Αν ο έλεγχος είναι επιτυχής, επιστρέφουμε 200 OK και τα στοιχεία του χρήστη
-        res.status(200).json({ message: 'Login successful', accessToken: user.accessToken,userId:user  });
+        res.status(200).json({ message: 'Login successful', accessToken: user.accessToken, userId: user });
 
     } catch (error) {
-        
+
         // Αν υπάρξει σφάλμα στον server κατά την επεξεργασία, επιστρέφουμε 500 Internal Server Error
         res.status(500).json({ message: 'An error occurred during login', error: error.message });
     }
@@ -59,7 +59,7 @@ const registerController = async (req, res) => {
             return res.status(400).json({ msg: result.message });
         }
 
-        res.status(200).json({ msg: result.message,userId:result.user });
+        res.status(200).json({ msg: result.message, userId: result.user });
     } catch (error) {
         console.error('Error in userController:', error);
         res.status(500).send('Server error');
