@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const userRoutes = require('./api/routes/userRoute');
+const userRoutes = require('./apis/routes/userRoute');
 app.use('/', userRoutes);
 
 // Εκκίνηση του server

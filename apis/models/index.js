@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json()); // Για να χειρίζεσαι JSON δεδομένα
 
 // Σύνδεση των routes
-app.use('/api/users', userRoutes);
+app.use('/apis/users', userRoutes);
 
 // Συγχρονισμός της βάσης δεδομένων και εκκίνηση του server
 sequelize.sync().then(() => {
