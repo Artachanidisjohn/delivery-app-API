@@ -12,7 +12,7 @@ const userRoutes = require('./apis/routes/userRoute');
 app.use('/', userRoutes);
 
 // Εκκίνηση του server
-const PORT = process.env.PORT || 7071;
+const PORT = process.env.PORT || 3100;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
