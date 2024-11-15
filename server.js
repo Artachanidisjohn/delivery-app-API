@@ -5,14 +5,14 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Middleware
-app.use(cors()); 
-app.use(bodyParser.json()); 
+app.use(cors());
+app.use(bodyParser.json());
 
-const userRoutes = require('./api/routes/userRoute'); 
+const userRoutes = require('./api/routes/userRoute');
 app.use('/', userRoutes);
 
 // Εκκίνηση του server
-const PORT = process.env.PORT || 3100;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
