@@ -30,12 +30,7 @@
     "nodemailer": "^6.5.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.6.2",
-    "stimulsoft-reports-js": "^2022.2.3",
-    "swagger-autogen": "^2.23.7",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-parser": "^10.0.2",
-    "swagger-ui-express": "^5.0.0"
+    "sequelize": "^6.6.2"
   },
   "devDependencies": {
     "eslint": "^7.27.0",
