@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 
 // @ts-ignore
-const config = require('./apis/config/config');
+const config = require('./api/config/config');
 
 const envConfig = process.env.NODE_ENV === 'production' ? config.production : config.development;
 

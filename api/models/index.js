@@ -1,7 +1,7 @@
 const express = require('express');
 const { sequelize } = require('../db'); // Σύνδεση με τη βάση δεδομένων
 const cors = require('cors');
-const userRoutes = require('../../apis/routes/userRoute'); // Εξαρτάται από τη δομή των routes
+const userRoutes = require('../../api/routes/userRoute'); // Εξαρτάται από τη δομή των routes
 
 const app = express();
 const PORT = process.env.PORT || 3200;
