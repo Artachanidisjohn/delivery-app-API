@@ -1,9 +1,13 @@
 
+const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const express = require('express');
+
+
+
+
 const app = express();
-const router=express.Router();
+const router = express.Router();
 
 const userController = require('../controllers/userController');
 
