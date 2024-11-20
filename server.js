@@ -29,14 +29,13 @@
 //   console.log(`Server is running on port ${PORT}`);
 // });
 
-
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
 
-// Χρήση του CORS middleware
+// Middleware CORS
 app.use(cors({
   origin: 'https://artachanidis-john-delivery-app.vercel.app', // Το URL του frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Επιτρεπόμενες μέθοδοι
@@ -44,12 +43,12 @@ app.use(cors({
   credentials: true
 }));
 
-// Middleware για JSON δεδομένα
-app.use(bodyParser.json());
+// Middleware για JSON
+app.use(bodyParser.json()); // Επεξεργασία JSON δεδομένων
 
 // Routes
-const userRoutes = require('./api/routes/userRoute');
-app.use('/api', userRoutes); // Όλες οι routes θα είναι διαθέσιμες στο `/api`
+const userRoutes = require('./api/routes/userRoute'); // Εισαγωγή του route
+app.use('/api', userRoutes); // Προσθήκη των routes στο `/api`
 
 // Default route (προαιρετικό)
 app.get('/', (req, res) => {
@@ -57,8 +56,7 @@ app.get('/', (req, res) => {
 });
 
 // Εκκίνηση του server
-const PORT = process.env.PORT || 3100; // Χρήση μεταβλητής περιβάλλοντος αν υπάρχει
+const PORT = process.env.PORT || 3100; // Χρήση μεταβλητής περιβάλλοντος ή default port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
