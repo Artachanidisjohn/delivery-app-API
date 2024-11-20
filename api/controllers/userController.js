@@ -1,4 +1,3 @@
-const Result = require('../core/result');
 const userService = require('../services/userService');
 
 
