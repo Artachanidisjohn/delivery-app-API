@@ -50,7 +50,7 @@ app.use(bodyParser.json()); // Επεξεργασία JSON δεδομένων
 const userRoutes = require('./api/routes/userRoute'); // Εισαγωγή του route
 app.use('/api', userRoutes); // Προσθήκη των routes στο `/api`
 
-// Default route (προαιρετικό)
+// Default route
 app.get('/', (req, res) => {
   res.send('Welcome to the API!');
 });
