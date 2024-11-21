@@ -37,21 +37,14 @@ dotenv.config(); // Φόρτωση περιβαλλοντικών μεταβλη
 
 const app = express();
 
-// Ενεργοποίηση CORS
-app.use(
-  cors({
-    origin: 'https://artachanidis-john-delivery-app.vercel.app', // Βάλε το URL του UI
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // Ρυθμίσεις middleware
 app.use(express.json());
 
 // Routes
 const userRoutes = require('./api/routes/userRoute'); // Ορθό path
-app.use('/api', userRoutes);
+app.use('/register', userRoutes);
 
 // Default route
 app.get('/', (req, res) => {

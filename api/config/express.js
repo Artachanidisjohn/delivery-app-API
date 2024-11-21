@@ -30,23 +30,26 @@
 // module.exports = app; // Εξάγεις την εφαρμογή Express για χρήση 
 
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const router = express.Router();
+const userRoutes = require('../../api/routes/userRoute'); // Ορθό path
 
-const userController = require('../controllers/userController');
-
-// Δημιουργία routes
-router.post('/login', userController.loginController);
-router.post('/logout', userController.logoutController);
-router.post('/register', userController.registerController);
-
-// Middleware για JSON αιτήματα
+app.use(cors());
 app.use(bodyParser.json()); // Για επεξεργασία JSON δεδομένων
 
-// Προσθήκη routes
-app.use(router); // Χρήση router για τις routes
+app.use('/register', userRoutes);
+
+app.listen(3100, () => {
+    console.log('Server is running on port 3100');
+});
+
+
+// Middleware για JSON αιτήματα
+
+
+
 
 module.exports = app; // Εξαγωγή του Express app
 
